@@ -88,3 +88,31 @@ After you submit the completed project, we will schedule a follow-up code-review
 | :------------------- | :--------------------------- |
 | `npm run format:fix` | format files with "prettier" |
 | `npm run test`       | execute tests with "jest"    |
+
+## Docs for the Solutions - Billi Ramirez
+
+### Run This Locally
+
+If you want to run this local, you can install the dependencies:
+
+- `npm install`
+- Install `Netlify-CLI` to run it locally: `npm install netlify-cli -g`
+
+#### Run the API:
+
+- Run: `netlify dev` and check the PORT for the app
+- Go to `http://localhost:PORT/api/{endpoint}`
+
+#### Avilable Endpoints:
+
+| endpoint description                 | URL                                                                                       | Additional Notes      |
+| :----------------------------------- | :---------------------------------------------------------------------------------------- | :-------------------- |
+| Get all the data                     | `/api/zipcodes`                                                                           | -                     |
+| search by full or partial zipcode    | `/api/getByPartialZipCode?zip=zip_value`                                                  | -                     |
+| search by full or partial city name  | `/api/getByPartialCityName?primary_city=primary_city_value`                               | -                     |
+| search by closest latitude/longitude | `/api/getByClosestLatitudeAndLongitude?latitude=latitude_value&longitude=longitude_value` | -                     |
+| filter by additional attributes      | `/api/filter?country=country_value&type=type_value`                                       | All Field if you want |
+
+### Run in Production
+
+You can try this in production with Netlify Functions, the URL is this one: `https://lambda-excercise-solidlogix.netlify.app/api/zipcodes`
