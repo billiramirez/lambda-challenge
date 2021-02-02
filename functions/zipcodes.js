@@ -1,0 +1,9 @@
+const data = require("../src/data.json");
+
+exports.handler = async function (event, context) {
+  // your server-side functionality
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ zipcodes: data }),
+  };
+};
