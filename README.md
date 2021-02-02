@@ -89,7 +89,9 @@ After you submit the completed project, we will schedule a follow-up code-review
 | `npm run format:fix` | format files with "prettier" |
 | `npm run test`       | execute tests with "jest"    |
 
-## Docs for the Solutions - Billi Ramirez
+---
+
+# Docs for the Solutions - Billi Ramirez
 
 ### Run This Locally
 
