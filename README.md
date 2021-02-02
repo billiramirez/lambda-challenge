@@ -93,6 +93,9 @@ After you submit the completed project, we will schedule a follow-up code-review
 
 # Docs for the Solutions - Billi Ramirez
 
+For this challenge I made use of Netlify Functions, it provides a way of doing serverless functions without going through AWS.
+[Here Some Docs](https://www.netlify.com/products/functions/)
+
 ### Run This Locally
 
 If you want to run this local, you can install the dependencies:
