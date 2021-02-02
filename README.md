@@ -109,7 +109,7 @@ If you want to run this local, you can install the dependencies:
 
 | endpoint description                 | URL                                                                                       | Additional Notes      |
 | :----------------------------------- | :---------------------------------------------------------------------------------------- | :-------------------- |
-| Get all the data                     | `/api/zipcodes`                                                                           | -                     |
+| Get all the data (10 rows)           | `/api/zipcodes`                                                                           | -                     |
 | search by full or partial zipcode    | `/api/getByPartialZipCode?zip=zip_value`                                                  | -                     |
 | search by full or partial city name  | `/api/getByPartialCityName?primary_city=primary_city_value`                               | -                     |
 | search by closest latitude/longitude | `/api/getByClosestLatitudeAndLongitude?latitude=latitude_value&longitude=longitude_value` | -                     |
