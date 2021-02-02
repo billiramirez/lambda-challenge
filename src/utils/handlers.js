@@ -11,6 +11,10 @@ const getZipCodes = (max = MAX_AND_MIN.MAX) => {
 
 const getPartialOrFullSearch = (key, text) => {
   return data.filter((record) => {
+    if (key === FILTER_KEYS.zip) {
+      const trimText = record[key].substr(0, text.length);
+      return trimText.includes(text);
+    }
     return record[key].includes(text);
   });
 };
@@ -18,7 +22,6 @@ const getPartialOrFullSearch = (key, text) => {
 const getOnlyValidFilterKey = (queryParams) => {
   let validKeys = [];
   Object.keys(queryParams).forEach((queryParam) => {
-    console.log(queryParam);
     validKeys = Object.keys(FILTER_KEYS).filter((key) => queryParam === key);
   });
   return validKeys;
