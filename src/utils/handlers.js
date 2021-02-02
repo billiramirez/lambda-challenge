@@ -22,13 +22,37 @@ const getPartialOrFullSearch = (key, text) => {
 const getOnlyValidFilterKey = (queryParams) => {
   let validKeys = [];
   Object.keys(queryParams).forEach((queryParam) => {
-    validKeys = Object.keys(FILTER_KEYS).filter((key) => queryParam === key);
+    Object.keys(FILTER_KEYS).forEach((key) => {
+      if (queryParam === key) {
+        validKeys.push(key);
+      }
+    });
   });
   return validKeys;
 };
+
+const getClosestLatAndLng = (lat, lng) => {
+  return data.reduce((acc, item) => {
+    if (acc.latitude && acc.longitude) {
+      if (
+        Math.abs(item.latitude - lat) <= Math.abs(acc.latitude - lat) &&
+        Math.abs(item.longitude - lng) <= Math.abs(acc.longitude - lng)
+      ) {
+        acc = { ...item };
+      }
+    } else {
+      acc = { ...item };
+    }
+    return acc;
+  }, {});
+};
+
+const isNumber = (value) => !Number.isNaN(+value);
 
 module.exports = {
   getZipCodes,
   getPartialOrFullSearch,
   getOnlyValidFilterKey,
+  isNumber,
+  getClosestLatAndLng,
 };
