@@ -47,6 +47,24 @@ const getClosestLatAndLng = (lat, lng) => {
   }, {});
 };
 
+const getFilteredValues = (filteredObject) => {
+  return data.filter((item) => {
+    return Object.keys(filteredObject).every((key) => {
+      return (
+        item[key] &&
+        item[key].toLowerCase() === filteredObject[key].toLowerCase()
+      );
+    });
+  });
+};
+
+const getConditionsFromValidKeys = (filteredValidKeys, queryParams) => {
+  return filteredValidKeys.reduce((acc, validKey) => {
+    acc[validKey] = queryParams[validKey];
+    return acc;
+  }, {});
+};
+
 const isNumber = (value) => !Number.isNaN(+value);
 
 module.exports = {
@@ -55,4 +73,6 @@ module.exports = {
   getOnlyValidFilterKey,
   isNumber,
   getClosestLatAndLng,
+  getFilteredValues,
+  getConditionsFromValidKeys,
 };
