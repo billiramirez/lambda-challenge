@@ -1,3 +1,6 @@
+const dotenv = require("dotenv").config();
+
+const axios = require("axios");
 const data = require("../data.json");
 const { MAX_AND_MIN, FILTER_KEYS } = require("./constants");
 
@@ -67,6 +70,14 @@ const getConditionsFromValidKeys = (filteredValidKeys, queryParams) => {
 
 const isNumber = (value) => !Number.isNaN(+value);
 
+const getDataFromApi = (url) => {
+  const API_URL = process.env.API_URL;
+  console.log(API_URL);
+  return axios.get(`${API_URL}${url}`).then(({ data }) => {
+    return data;
+  });
+};
+
 module.exports = {
   getZipCodes,
   getPartialOrFullSearch,
@@ -75,4 +86,5 @@ module.exports = {
   getClosestLatAndLng,
   getFilteredValues,
   getConditionsFromValidKeys,
+  getDataFromApi,
 };
