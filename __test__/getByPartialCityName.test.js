@@ -5,7 +5,6 @@ describe("Get By Partial City Name", () => {
     const randomText = "guanacaste";
     const apiURL = `getByPartialCityName?primary_city=${randomText}`;
     await getDataFromApi({ method: "GET", endpoint: apiURL }).then((data) => {
-      console.log("data => ", data);
       expect(data.results).toHaveLength(0);
     });
   });
