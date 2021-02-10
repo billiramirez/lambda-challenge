@@ -8,6 +8,13 @@ describe("Get By Partial City Name", () => {
       expect(data.results).toHaveLength(0);
     });
   });
+  test("Check if a Provided City Name has some Results", async () => {
+    const randomText = "Barre";
+    const apiURL = `getByPartialCityName?primary_city=${randomText}`;
+    await getDataFromApi({ method: "GET", endpoint: apiURL }).then((data) => {
+      expect(data.results.length).toBeGreaterThan(0);
+    });
+  });
   // test("make an api call", async () => {
   //   const apiURL = "https://rickandmortyapi.com/api/character/";
   //   const getRick = "https://rickandmortyapi.com/api/character/1";
