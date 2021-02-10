@@ -70,10 +70,21 @@ const getConditionsFromValidKeys = (filteredValidKeys, queryParams) => {
 
 const isNumber = (value) => !Number.isNaN(+value);
 
-const getDataFromApi = (url) => {
+const getDataFromApi = (config) => {
   const API_URL = process.env.API_URL;
   console.log(API_URL);
-  return axios.get(`${API_URL}${url}`).then(({ data }) => {
+
+  return axios({
+    method: config.method || "get",
+    url: `${API_URL}/${config.endpoint}`,
+    headers: {
+      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+      "Access-Control-Allow-Credentials": "true",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Origin": "*",
+    },
+  }).then(({ data }) => {
     return data;
   });
 };

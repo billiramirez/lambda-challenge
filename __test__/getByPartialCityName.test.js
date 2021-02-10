@@ -3,8 +3,8 @@ import { getDataFromApi } from "../src/utils/handlers";
 describe("Get By Partial City Name", () => {
   test("Provide an non existing City Name returns empty Array", async () => {
     const randomText = "guanacaste";
-    const apiURL = `/getByPartialCityName?primary_city=${randomText}`;
-    await getDataFromApi(apiURL).then((data) => {
+    const apiURL = `getByPartialCityName?primary_city=${randomText}`;
+    await getDataFromApi({ method: "GET", endpoint: apiURL }).then((data) => {
       expect(data.results.length).toBe(0);
     });
   });
