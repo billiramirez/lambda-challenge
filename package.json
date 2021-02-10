@@ -22,5 +22,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

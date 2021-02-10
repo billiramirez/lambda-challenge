@@ -70,15 +70,15 @@ const getConditionsFromValidKeys = (filteredValidKeys, queryParams) => {
 
 const isNumber = (value) => !Number.isNaN(+value);
 
-const getDataFromApi = (config) => {
+const getDataFromApi = async (config) => {
   const API_URL = process.env.API_URL;
-  console.log(API_URL);
 
-  return axios({
+  return await axios({
     method: config.method || "get",
     url: `${API_URL}/${config.endpoint}`,
+    timeout: config.timeout || "5000",
     headers: {
-      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+      "Access-Control-Allow-Headers": "Origin, Content-Type",
       "Access-Control-Allow-Credentials": "true",
       "Content-Type": "application/json",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
